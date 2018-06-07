@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import java.util.*;
 
 public class Controller {
+    private boolean isFifoMode;
+
     private boolean firstInstructionSet;
 
     private ArrayList<Integer> instructionArray;
@@ -15,6 +17,7 @@ public class Controller {
     public Controller(){
         this.firstInstructionSet = false;
         this.instructionList = new ListView<>();
+        this.isFifoMode = true;
     }
 
     private void initLabels(int firstInstruction, int nextInstruction){
@@ -24,7 +27,19 @@ public class Controller {
     }
 
     @FXML
-    public void createListButtonOnclickHandler(){
+    private void fifoButtonOnClickHandler(){
+        this.isFifoMode = true;
+        this.algLabel.setText("FIFO");
+    }
+
+    @FXML
+    private void lruButtonOnCLickHandler(){
+        this.isFifoMode = false;
+        this.algLabel.setText("LRU");
+    }
+
+    @FXML
+    private void createListButtonOnclickHandler(){
         String tmp = this.firstInstructionText.getText();
         int first = Integer.parseInt(tmp);
         if (first < 0 || first >= 320){
@@ -43,6 +58,9 @@ public class Controller {
             this.instructionArray = list;
             System.out.println("Creating instruction list.");
             this.initLabels(list.get(0), list.get(1));
+
+            this.fifoButton.setDisable(true);
+            this.lruButton.setDisable(true);
         }
     }
 
@@ -87,4 +105,10 @@ public class Controller {
 
     @FXML
     private Button lruButton;
+
+    @FXML
+    private TableColumn memoryInfoColumn;
+
+    @FXML
+    private TableColumn historyInfoColumn;
 }
