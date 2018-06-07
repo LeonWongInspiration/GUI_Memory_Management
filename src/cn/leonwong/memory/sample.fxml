@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cn.leonwong.memory.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <SplitPane dividerPositions="0.3" prefHeight="600.0" prefWidth="800.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="400.0">
+                     <children>
+                        <TextField fx:id="firstInstructionText" layoutX="117.0" layoutY="38.0" prefHeight="20.0" prefWidth="80.0" promptText="0~319" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Instructions Management" />
+                        <Label layoutX="14.0" layoutY="43.0" text="First Instruction" />
+                        <Button fx:id="createListButton" layoutX="173.0" layoutY="87.0" mnemonicParsing="false" onAction="#createListButtonOnclickHandler" text="Start" />
+                        <ListView fx:id="instructionList" layoutX="133.0" layoutY="163.0" prefHeight="170.0" prefWidth="80.0" />
+                        <Label layoutX="17.0" layoutY="163.0" text="Instruction List" />
+                        <Label layoutX="14.0" layoutY="375.0" text="Current Instruction:" />
+                        <Label fx:id="currentInstructionLabel" layoutX="83.0" layoutY="402.0" text="\%Current%" />
+                        <Label layoutX="14.0" layoutY="432.0" text="Next Instruction:" />
+                        <Label fx:id="nextInstructionLabel" layoutX="87.0" layoutY="463.0" text="\%Next%" />
+                        <Button fx:id="nextStepButton" layoutX="14.0" layoutY="504.0" mnemonicParsing="false" text="Next Step" />
+                        <Button fx:id="nextFiveButton" layoutX="121.0" layoutY="504.0" mnemonicParsing="false" text="Next 5 Steps" />
+                        <Button fx:id="runAllButton" layoutX="76.0" layoutY="551.0" mnemonicParsing="false" text="Run all" />
+                        <Label layoutX="16.0" layoutY="92.0" text="Algorithm:" />
+                        <Button fx:id="fifoButton" layoutX="25.0" layoutY="121.0" mnemonicParsing="false" text="FIFO" />
+                        <Button fx:id="lruButton" layoutX="99.0" layoutY="121.0" mnemonicParsing="false" text="LRU" />
+                        <Label fx:id="algLabel" layoutX="100.0" layoutY="92.0" text="\%Alg%" />
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="394.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Memory View" />
+                        <Label layoutX="413.0" layoutY="14.0" text="Page missing:" />
+                        <Label fx:id="pageMissingLabel" layoutX="508.0" layoutY="14.0" text="\%PM%" />
+                        <TableView fx:id="memoryTable" layoutX="14.0" layoutY="46.0" prefHeight="200.0" prefWidth="536.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="14.0" layoutY="257.0" text="Execution History" />
+                        <TableView fx:id="historyTable" layoutX="14.0" layoutY="281.0" prefHeight="308.0" prefWidth="536.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
